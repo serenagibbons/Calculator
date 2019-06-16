@@ -17,5 +17,10 @@ public class CalculatorController {
     	value = ((Button)event.getSource()).getText();			// get text of button input
         displayField.setText(displayField.getText() + value);	// display value entered
     }
+    
+    @FXML
+    void clear(ActionEvent event) {
+    	displayField.clear();
+    }
 	
 }
