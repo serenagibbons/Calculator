@@ -1,0 +1,12 @@
+.button {
+	-fx-background-radius: 0 0 0 0;
+}
+
+.button:focused {
+    -fx-background-color: -fx-outer-border, -fx-inner-border, -fx-body-color; 
+    -fx-background-insets: 0, 1, 2;
+}
+
+.text-input {
+	-fx-background-radius: 0 0 0 0;
+}
