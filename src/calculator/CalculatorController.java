@@ -29,17 +29,19 @@ public class CalculatorController {
     		clear(event);
     		break;
     	case "+/-":
+    		
     	case "+":
     	case "-":
     	case "*":
     	case "/":
     		history += (displayField.getText() + value);
     		historyField.setText(history); // display input history
+    		displayField.clear();
     		break;
     	case "=":
     	default: 
-    		displayField.clear();
     		displayField.setText(displayField.getText() + value); // display value entered
+    		storeInput();
     		break;
     	}
        
@@ -51,14 +53,12 @@ public class CalculatorController {
     	historyField.setText("");
     }
     
-    @FXML
-    private void addition(ActionEvent event) {
+    private void storeInput() {
     	input = new ArrayList<>();
     	
     	if (isNumeric(value)) {
-
-    	}
-    	
+    		input.add(Double.parseDouble(displayField.getText()));
+    	}	
     }
     
     private boolean isNumeric(String s) {
