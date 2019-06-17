@@ -1,5 +1,7 @@
 package calculator;
 
+import java.util.ArrayList;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,7 +15,7 @@ public class CalculatorController {
     private TextField displayField;
 
     @FXML
-    void handleButtonInput(ActionEvent event) {
+    private void handleButtonInput(ActionEvent event) {
     	value = ((Button)event.getSource()).getText();			// get text of button input
     	
     	switch(value) {
@@ -29,8 +31,18 @@ public class CalculatorController {
     }
     
     @FXML
-    void clear(ActionEvent event) {
+    private void clear(ActionEvent event) {
     	displayField.clear();
+    }
+    
+    private boolean isNumeric(String s) {
+    	try {
+    		Double.parseDouble(s);
+    		return true;
+    	}
+    	catch (NumberFormatException e) {
+    		return false;
+    	}
     }
 	
 }
