@@ -29,7 +29,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="75.0" text="+/-" GridPane.columnIndex="1">
+                  <Button mnemonicParsing="false" prefHeight="64.0" prefWidth="75.0" text="+/-" GridPane.columnIndex="1">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -44,17 +44,22 @@
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#handleButtonInput" prefHeight="64.0" prefWidth="75.0" text="7" GridPane.rowIndex="1">
+                  <Button mnemonicParsing="false" onAction="#handleButtonInput" prefHeight="64.0" prefWidth="75.0" text="C">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#handleButtonInput" prefHeight="64.0" prefWidth="75.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Button mnemonicParsing="false" onAction="#handleButtonInput" prefHeight="64.0" prefWidth="75.0" styleClass="numbers" text="7" GridPane.rowIndex="1">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#handleButtonInput" prefHeight="64.0" prefWidth="75.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Button mnemonicParsing="false" onAction="#handleButtonInput" prefHeight="64.0" prefWidth="75.0" styleClass="numbers" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#handleButtonInput" prefHeight="64.0" prefWidth="75.0" styleClass="numbers" text="9" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -69,47 +74,42 @@
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#handleButtonInput" prefHeight="64.0" prefWidth="75.0" text="4" GridPane.rowIndex="2">
+                  <Button mnemonicParsing="false" onAction="#handleButtonInput" prefHeight="64.0" prefWidth="75.0" styleClass="numbers" text="4" GridPane.rowIndex="2">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#handleButtonInput" prefHeight="64.0" prefWidth="75.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Button mnemonicParsing="false" onAction="#handleButtonInput" prefHeight="64.0" prefWidth="75.0" styleClass="numbers" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#handleButtonInput" prefHeight="64.0" prefWidth="75.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <Button mnemonicParsing="false" onAction="#handleButtonInput" prefHeight="64.0" prefWidth="75.0" styleClass="numbers" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#handleButtonInput" prefHeight="64.0" prefWidth="75.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                  <Button mnemonicParsing="false" onAction="#handleButtonInput" prefHeight="64.0" prefWidth="75.0" styleClass="numbers" text="3" GridPane.columnIndex="2" GridPane.rowIndex="3">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#handleButtonInput" prefHeight="64.0" prefWidth="75.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <Button mnemonicParsing="false" onAction="#handleButtonInput" prefHeight="64.0" prefWidth="75.0" styleClass="numbers" text="2" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#handleButtonInput" prefHeight="64.0" prefWidth="75.0" text="1" GridPane.rowIndex="3">
+                  <Button mnemonicParsing="false" onAction="#handleButtonInput" prefHeight="64.0" prefWidth="75.0" styleClass="numbers" text="1" GridPane.rowIndex="3">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#handleButtonInput" prefHeight="64.0" prefWidth="75.0" text="." GridPane.columnIndex="2" GridPane.rowIndex="4">
+                  <Button mnemonicParsing="false" onAction="#handleButtonInput" prefHeight="64.0" prefWidth="75.0" styleClass="numbers" text="." GridPane.columnIndex="2" GridPane.rowIndex="4">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#handleButtonInput" prefHeight="64.0" prefWidth="75.0" text="C">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#handleButtonInput" prefHeight="64.0" prefWidth="150.0" text="0" GridPane.columnSpan="2147483647" GridPane.rowIndex="4">
+                  <Button mnemonicParsing="false" onAction="#handleButtonInput" prefHeight="64.0" prefWidth="150.0" styleClass="numbers" text="0" GridPane.columnSpan="2147483647" GridPane.rowIndex="4">
                      <font>
                         <Font size="18.0" />
                      </font>

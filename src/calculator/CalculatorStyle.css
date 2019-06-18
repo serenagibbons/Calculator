@@ -1,10 +1,22 @@
 .button {
 	-fx-background-radius: 0 0 0 0;
+	-fx-background-color: #A9A9A9;
+	-fx-border-color: #D3D3D3;
 }
 
 .button:focused {
-    -fx-background-color: -fx-outer-border, -fx-inner-border, -fx-body-color; 
     -fx-background-insets: 0, 1, 2;
+   	-fx-background-color: #A9A9A9;
+	-fx-border-color: #D3D3D3;
+}
+
+.numbers {
+	-fx-background-color: #F2F2F2;
+	-fx-border-color: #D3D3D3;
+}
+
+.numbers:focused {
+	-fx-background-color: #F2F2F2;
 }
 
 .text-input {
