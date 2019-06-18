@@ -11,8 +11,9 @@ public class CalculatorController {
 	
 	private String value;
 	private String history = "";
-	private double result;
-	private ArrayList<Double> input;
+	private double result = 0;
+	private ArrayList<Double> input = new ArrayList<Double>();
+
 	
     @FXML
     private TextField displayField;
@@ -25,11 +26,12 @@ public class CalculatorController {
     	value = ((Button)event.getSource()).getText();			// get text of button input
     	
     	switch(value) {
-    	case "C":
+    	case "C": // clear display and reset result
     		clear(event);
+    		result = 0;
     		break;
     	case "+/-":
-    		
+    
     	case "+":
     	case "-":
     	case "*":
@@ -39,23 +41,35 @@ public class CalculatorController {
     		displayField.clear();
     		break;
     	case "=":
+    		calculate();
+    		
+    		// clear display and show result
+    		clear(event);
+    		displayField.setText("" + result);
+    		break;
     	default: 
     		displayField.setText(displayField.getText() + value); // display value entered
     		storeInput();
     		break;
-    	}
-       
+    	} 
     }
     
+    private double calculate() {
+    	for (Double i : input) {
+    		result += i;
+    	}
+    	return result;
+    }
+ 
     @FXML
     private void clear(ActionEvent event) {
     	displayField.clear();
     	historyField.setText("");
+    	history = "";
+    	input = new ArrayList<Double>();
     }
     
-    private void storeInput() {
-    	input = new ArrayList<>();
-    	
+    private void storeInput() {  	
     	if (isNumeric(value)) {
     		input.add(Double.parseDouble(displayField.getText()));
     	}	
