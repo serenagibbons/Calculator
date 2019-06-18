@@ -10,6 +10,7 @@ import javafx.scene.text.Text;
 public class CalculatorController {
 	
 	private String value;
+	private String operator = "";
 	private String history = "";
 	private double result = 0;
 	private ArrayList<Double> input = new ArrayList<Double>();
@@ -36,6 +37,8 @@ public class CalculatorController {
     	case "-":
     	case "*":
     	case "/":
+    		operator = ((Button)event.getSource()).getText();
+    		
     		history += (displayField.getText() + value);
     		historyField.setText(history); // display input history
     		displayField.clear();
@@ -55,9 +58,24 @@ public class CalculatorController {
     }
     
     private double calculate() {
-    	for (Double i : input) {
-    		result += i;
+    	switch(operator) {
+    	case "+":
+    		for (Double i : input) {
+        		result += i;
+        	}
+    		break;
+    	case "-":
+    		result = input.get(0) - input.get(1);
+    		break;
+    	case "*":
+    		result = input.get(0) * input.get(1);
+    		break;
+    	case "/":
+    		if (input.get(1) != 0)
+    			result = input.get(0) / input.get(1);
+    		break;
     	}
+    	
     	return result;
     }
  
