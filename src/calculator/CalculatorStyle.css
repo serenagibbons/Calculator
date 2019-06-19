@@ -25,4 +25,12 @@
 
 .text-input {
 	-fx-background-radius: 0 0 0 0;
+	-fx-background-color: #FFFFFF;
+	-fx-border-color: #D3D3D3;
+}
+
+.text-input:focused {
+	-fx-background-insets: 0 1 2;
+	-fx-background-color: #FFFFFF;
+	-fx-border-color: #D3D3D3;
 }
