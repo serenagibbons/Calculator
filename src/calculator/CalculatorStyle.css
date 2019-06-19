@@ -1,13 +1,17 @@
 .button {
 	-fx-background-radius: 0 0 0 0;
-	-fx-background-color: #A9A9A9;
+	-fx-background-color: #C0C0C0;
 	-fx-border-color: #D3D3D3;
 }
 
 .button:focused {
     -fx-background-insets: 0, 1, 2;
-   	-fx-background-color: #A9A9A9;
+   	-fx-background-color: #C0C0C0;
 	-fx-border-color: #D3D3D3;
+}
+
+.button:hover {
+   	-fx-background-color: #A9A9A9;
 }
 
 .numbers {
