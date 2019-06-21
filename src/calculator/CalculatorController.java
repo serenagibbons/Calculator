@@ -14,7 +14,6 @@ public class CalculatorController {
 	private String history = "";
 	private double result = 0;
 	private ArrayList<Double> input = new ArrayList<Double>();
-
 	
     @FXML
     private TextField displayField;
@@ -59,24 +58,25 @@ public class CalculatorController {
     }
     
     private double calculate() {
+    	result = input.get(0);
+    	
+    	for (int i = 0; i < input.size() - 1; i++) {
     	switch(operator) {
     	case "+":
-    		for (Double i : input) {
-        		result += i;
-        	}
+        	result += input.get(i+1);
     		break;
     	case "-":
-    		result = input.get(0) - input.get(1);
+    		result -= input.get(i+1);
     		break;
     	case "*":
-    		result = input.get(0) * input.get(1);
+    		result *= input.get(i+1);
     		break;
     	case "/":
-    		if (input.get(1) != 0)
-    			result = input.get(0) / input.get(1);
+    		if (input.get(i+1) != 0)
+    			result /= input.get(i+1);
     		break;
     	}
-    	
+    	}
     	return result;
     }
     
