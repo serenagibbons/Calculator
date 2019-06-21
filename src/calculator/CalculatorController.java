@@ -80,14 +80,17 @@ public class CalculatorController {
     	return result;
     }
     
-    private void negate() {
-    	if (Double.parseDouble(displayField.getText()) >= 0) {
+    private void negate() {    	
+    	double temp = Double.parseDouble(displayField.getText());
+
+    	if (temp >= 0) {
     		displayField.setText("-" + displayField.getText()); // if input is positive, make negative
     	}
     	else {
     		displayField.setText(displayField.getText().substring(1)); // if input is negative, make positive
     	}
-    		
+    	
+    	input.set(input.indexOf(temp), 0-temp);    		
     }
     
     @FXML
