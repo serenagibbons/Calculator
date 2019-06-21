@@ -32,7 +32,8 @@ public class CalculatorController {
     		result = 0;
     		break;
     	case "+/-":
-    
+    		negate();
+    		break;
     	case "+":
     	case "-":
     	case "*":
@@ -78,7 +79,17 @@ public class CalculatorController {
     	
     	return result;
     }
- 
+    
+    private void negate() {
+    	if (Double.parseDouble(displayField.getText()) >= 0) {
+    		displayField.setText("-" + displayField.getText()); // if input is positive, make negative
+    	}
+    	else {
+    		displayField.setText(displayField.getText().substring(1)); // if input is negative, make positive
+    	}
+    		
+    }
+    
     @FXML
     private void clear(ActionEvent event) {
     	displayField.clear();
