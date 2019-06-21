@@ -30,6 +30,9 @@ public class CalculatorController {
     		clear(event);
     		result = 0;
     		break;
+    	case "CE":
+    		clearEntry();
+        	break;
     	case "+/-":
     		negate();
     		break;
@@ -101,6 +104,18 @@ public class CalculatorController {
     	input = new ArrayList<Double>();
     }
     
+    private void clearEntry() { 
+    	if (!input.isEmpty()) {
+    		double lastEntry = Double.parseDouble(displayField.getText());
+
+    		displayField.clear();
+    		input.remove(input.indexOf(lastEntry));
+    	}
+    	else
+    		displayField.clear();
+
+    }
+
     private void storeInput() {  	
     	if (isNumeric(value)) {
     		input.add(Double.parseDouble(displayField.getText()));
