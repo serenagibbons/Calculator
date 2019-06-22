@@ -126,7 +126,7 @@
                   </Button>
                </children>
             </GridPane>
-            <TextField fx:id="displayField" alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="300.0">
+            <TextField fx:id="displayField" alignment="CENTER_RIGHT" onAction="#handleKeyboardInput" prefHeight="80.0" prefWidth="300.0">
                <font>
                   <Font size="24.0" />
                </font></TextField>
