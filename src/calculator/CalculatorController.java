@@ -40,6 +40,7 @@ public class CalculatorController {
     	case "-":
     	case "*":
     	case "/":
+    		storeInput();
     		operator = ((Button)event.getSource()).getText();
     		
     		history += (displayField.getText() + value);
@@ -47,6 +48,8 @@ public class CalculatorController {
     		displayField.clear();
     		break;
     	case "=":
+    		storeInput();
+
     		calculate();
     		
     		// clear display and show result
@@ -55,7 +58,6 @@ public class CalculatorController {
     		break;
     	default: 
     		displayField.setText(displayField.getText() + value); // display value entered
-    		storeInput();
     		break;
     	} 
     }
@@ -117,7 +119,7 @@ public class CalculatorController {
     }
 
     private void storeInput() {  	
-    	if (isNumeric(value)) {
+    	if (isNumeric(displayField.getText())) {
     		input.add(Double.parseDouble(displayField.getText()));
     	}	
     }
