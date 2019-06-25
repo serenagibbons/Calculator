@@ -75,29 +75,21 @@ public class CalculatorController {
     	value = event.getCharacter();
     	if (isNumeric(value)) 
     		displayField.setText(displayField.getText() + value);
-    	else {
+    	else if (!isLetter(value)){
     		storeInput();
     		operator = event.getCharacter();
-    		
-    		/*switch(operator) {
-    		case "C":
-    		case "CE":
-    		case "=":
-    			
-    		}*/
-
+   
     		if (!operator.contentEquals("=")) {
-    			history += (displayField.getText() + value);
+    			history += (displayField.getText() + operator);
     			historyField.setText(history); // display input history
     			displayField.clear();
     		}
     		else {	//FIX THIS
-    			calculate();
-    			displayField.clear();
-    	    	historyField.setText("");
-    	    	history = "";
-    	    	input = new ArrayList<Double>();
-    	    	displayField.setText("" + result);
+        		calculate();
+        		
+        		// clear display and show result
+        		clear();
+        		displayField.setText("" + result);
     		}
 
     	}
@@ -173,5 +165,15 @@ public class CalculatorController {
     		return false;
     	}
     }
-	
+    
+    private boolean isLetter(String s) {
+    	boolean flag = false;
+    	
+    	for (int i = 0; i < s.length(); i++)
+    	    if (java.lang.Character.isLetter(s.charAt(i)))
+    	    	flag = true;
+ 
+    	return flag;
+    }
+    
 }
