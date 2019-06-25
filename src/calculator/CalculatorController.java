@@ -70,6 +70,39 @@ public class CalculatorController {
         	displayField.setText(displayField.getText() + value);	// display value entered
     }
     
+    @FXML
+    private void handleKeyTyped(KeyEvent event) {
+    	value = event.getCharacter();
+    	if (isNumeric(value)) 
+    		displayField.setText(displayField.getText() + value);
+    	else {
+    		storeInput();
+    		operator = event.getCharacter();
+    		
+    		/*switch(operator) {
+    		case "C":
+    		case "CE":
+    		case "=":
+    			
+    		}*/
+
+    		if (!operator.contentEquals("=")) {
+    			history += (displayField.getText() + value);
+    			historyField.setText(history); // display input history
+    			displayField.clear();
+    		}
+    		else {	//FIX THIS
+    			calculate();
+    			displayField.clear();
+    	    	historyField.setText("");
+    	    	history = "";
+    	    	input = new ArrayList<Double>();
+    	    	displayField.setText("" + result);
+    		}
+
+    	}
+    }
+    
     private double calculate() {
     	result = input.get(0);
     	
