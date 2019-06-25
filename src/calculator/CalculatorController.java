@@ -29,7 +29,7 @@ public class CalculatorController {
     	
     	switch(value) {
     	case "C": // clear display and reset result
-    		clear(event);
+    		clear();
     		result = 0;
     		break;
     	case "CE":
@@ -55,7 +55,7 @@ public class CalculatorController {
     		calculate();
     		
     		// clear display and show result
-    		clear(event);
+    		clear();
     		displayField.setText("" + result);
     		break;
     	default: 
@@ -106,8 +106,7 @@ public class CalculatorController {
     	input.set(input.indexOf(temp), 0-temp);    		
     }
     
-    @FXML
-    private void clear(ActionEvent event) {
+    private void clear() {
     	displayField.clear();
     	historyField.setText("");
     	history = "";
