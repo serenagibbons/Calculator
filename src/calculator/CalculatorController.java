@@ -54,16 +54,19 @@ public class CalculatorController {
     		displayField.clear();
     		break;
     	case "=":
+    		// store input, calculate, clear current display and show result
     		storeInput();
-
     		calculate();
-    		
-    		// clear display and show result
     		clear();
     		displayField.setText("" + result);
     		break;
     	default: 
-    		displayField.setText(displayField.getText() + value); // display value entered
+    		if (value.equals(".")) {
+        		if (!displayField.getText().contains(".")) // only allow 1 decimal point input
+        			displayField.setText(displayField.getText() + value);
+        	}
+    		else
+    			displayField.setText(displayField.getText() + value); // display value entered
     		break;
     	} 
     }
@@ -95,10 +98,9 @@ public class CalculatorController {
     	else if (!isLetter(value)) {
 
     		if (value.equals("=")) {
+    			// store input, calculate, clear current display and show result
     			storeInput();
         		calculate();
-        		
-        		// clear display and show result
         		clear();
         		displayField.setText("" + result);
     		}
@@ -154,7 +156,7 @@ public class CalculatorController {
     	return result;
     }
     
-    // negates the current entry
+    // negate the current entry
     private void negate() {    	
     	double temp = Double.parseDouble(displayField.getText());
 
@@ -168,7 +170,7 @@ public class CalculatorController {
     	input.set(input.indexOf(temp), 0-temp);    		
     }
     
-    // clears the current entry, history, and all stored input
+    // clear the current entry, history, and all stored input
     private void clear() {
     	displayField.clear();
     	historyField.setText("");
@@ -176,7 +178,7 @@ public class CalculatorController {
     	input = new ArrayList<Double>();
     }
     
-    // clears the current entry only
+    // clear the current entry only
     private void clearEntry() { 
     	if (!input.isEmpty()) {
     		double lastEntry = Double.parseDouble(displayField.getText());
@@ -188,20 +190,20 @@ public class CalculatorController {
     		displayField.clear();
     }
     
-    // deletes the last digit entered
+    // delete the last digit entered
     private void backspace() {
     	String entry = displayField.getText();
 		displayField.setText(entry.substring(0, entry.length()-1));
     }
 
-    // stores numerical input in ArrayList input
+    // store numerical input in ArrayList input
     private void storeInput() {  	
     	if (isNumeric(displayField.getText())) {
     		input.add(Double.parseDouble(displayField.getText()));
     	}	
     }
     
-    // evaluates whether a string can be parsed into a Double
+    // evaluate whether a string can be parsed into a Double
     private boolean isNumeric(String s) {
     	try {
     		Double.parseDouble(s);
@@ -212,7 +214,7 @@ public class CalculatorController {
     	}
     }
     
-    // evaluates whether a string contains only letters
+    // evaluate whether a string contains only letters
     private boolean isLetter(String s) {
     	boolean flag = false;
     	
