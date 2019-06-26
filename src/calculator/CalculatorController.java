@@ -1,20 +1,23 @@
 package calculator;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 
 public class CalculatorController {
 	
 	private String value;
-	private String operator = "";
+	private String operator;
 	private String history = "";
 	private double result = 0;
+	private final String[] symbols = {"*", "/", "+", "-", "="};
 	private ArrayList<Double> input = new ArrayList<Double>();
 	
     @FXML
@@ -73,18 +76,15 @@ public class CalculatorController {
     @FXML
     private void handleKeyTyped(KeyEvent event) {
     	value = event.getCharacter();
+    	
+    	// if the value of the key pressed is numeric, display input in text field
     	if (isNumeric(value)) 
     		displayField.setText(displayField.getText() + value);
-    	else if (!isLetter(value)){
-    		if (!value.equals("=")) {
-        		storeInput();
-        		operator = event.getCharacter();
-        		
-    			history += (displayField.getText() + operator);
-    			historyField.setText(history); // display input history
-    			displayField.clear();
-    		}
-    		else {
+    	
+    	// else if the value of the key pressed is not a letter 
+    	else if (!isLetter(value)) {
+
+    		if (value.equals("=")) {
     			storeInput();
         		calculate();
         		
@@ -92,10 +92,24 @@ public class CalculatorController {
         		clear();
         		displayField.setText("" + result);
     		}
+    		else if (Arrays.asList(symbols).contains(value)) {
+        		storeInput();
+        		operator = event.getCharacter();
+        		        		
+    			history += (displayField.getText() + operator);
+    			historyField.setText(history); // display input history
+    			displayField.clear();
+    		}
 
     	}
     }
     
+    @FXML
+    private void handleKeyPressed(KeyEvent event) {
+    	if (event.getCode() == KeyCode.BACK_SPACE)
+    		backspace();
+    }
+
     private double calculate() {
     	result = input.get(0);
     	
@@ -149,6 +163,11 @@ public class CalculatorController {
     	else
     		displayField.clear();
 
+    }
+    
+    private void backspace() {
+    	String entry = displayField.getText();
+		displayField.setText(entry.substring(0, entry.length()-1));
     }
 
     private void storeInput() {  	

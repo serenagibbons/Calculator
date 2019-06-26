@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane onKeyTyped="#handleKeyTyped" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.CalculatorController">
+<AnchorPane onKeyPressed="#handleKeyPressed" onKeyTyped="#handleKeyTyped" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.CalculatorController">
    <children>
       <Pane prefHeight="400.0" prefWidth="300.0">
          <children>
