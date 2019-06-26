@@ -21,12 +21,13 @@ public class CalculatorController {
 	private ArrayList<Double> input = new ArrayList<Double>();
 	
     @FXML
-    private TextField displayField;
+    private TextField displayField;	// display field for current entry
     
     @FXML
-    private Text historyField;
+    private Text historyField;	// display previous number and operator inputs
 
     @FXML
+    // handle button inputs
     private void handleButtonInput(ActionEvent event) {
     	value = ((Button)event.getSource()).getText();			// get text of button input
     	
@@ -68,12 +69,15 @@ public class CalculatorController {
     }
     
     @FXML
+    // handle keyboard input when text field selected
+    // text field not implemented to handle operators through keyboard
     private void handleKeyboardInput(ActionEvent event) {
     		value = ((TextField)event.getSource()).getText();		// get text of keyboard input
         	displayField.setText(displayField.getText() + value);	// display value entered
     }
     
     @FXML
+    // handle key typed when application selected
     private void handleKeyTyped(KeyEvent event) {
     	value = event.getCharacter();
     	
@@ -105,21 +109,22 @@ public class CalculatorController {
     }
     
     @FXML
+    // handle key pressed for non-character keys
     private void handleKeyPressed(KeyEvent event) {
     	
     	if (event.getCode() == KeyCode.BACK_SPACE)
     		backspace();
     	else if (event.getCode() == KeyCode.ENTER) {
+    		// store input, calculate, clear current display and show result
     		storeInput();
     		calculate();
-    		
-    		// clear display and show result
     		clear();
     		displayField.setText("" + result);
     	}
     	
     }
-
+    
+    // perform calculations and return result
     private double calculate() {
     	result = input.get(0);
     	
@@ -143,6 +148,7 @@ public class CalculatorController {
     	return result;
     }
     
+    // negates the current entry
     private void negate() {    	
     	double temp = Double.parseDouble(displayField.getText());
 
@@ -156,6 +162,7 @@ public class CalculatorController {
     	input.set(input.indexOf(temp), 0-temp);    		
     }
     
+    // clears the current entry, history, and all stored input
     private void clear() {
     	displayField.clear();
     	historyField.setText("");
@@ -163,6 +170,7 @@ public class CalculatorController {
     	input = new ArrayList<Double>();
     }
     
+    // clears the current entry only
     private void clearEntry() { 
     	if (!input.isEmpty()) {
     		double lastEntry = Double.parseDouble(displayField.getText());
@@ -172,20 +180,22 @@ public class CalculatorController {
     	}
     	else
     		displayField.clear();
-
     }
     
+    // deletes the last digit entered
     private void backspace() {
     	String entry = displayField.getText();
 		displayField.setText(entry.substring(0, entry.length()-1));
     }
 
+    // stores numerical input in ArrayList input
     private void storeInput() {  	
     	if (isNumeric(displayField.getText())) {
     		input.add(Double.parseDouble(displayField.getText()));
     	}	
     }
     
+    // evaluates whether a string can be parsed into a Double
     private boolean isNumeric(String s) {
     	try {
     		Double.parseDouble(s);
@@ -196,6 +206,7 @@ public class CalculatorController {
     	}
     }
     
+    // evaluates whether a string contains only letters
     private boolean isLetter(String s) {
     	boolean flag = false;
     	
