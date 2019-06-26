@@ -106,8 +106,18 @@ public class CalculatorController {
     
     @FXML
     private void handleKeyPressed(KeyEvent event) {
+    	
     	if (event.getCode() == KeyCode.BACK_SPACE)
     		backspace();
+    	else if (event.getCode() == KeyCode.ENTER) {
+    		storeInput();
+    		calculate();
+    		
+    		// clear display and show result
+    		clear();
+    		displayField.setText("" + result);
+    	}
+    	
     }
 
     private double calculate() {
