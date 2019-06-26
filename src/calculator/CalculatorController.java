@@ -82,9 +82,15 @@ public class CalculatorController {
     	value = event.getCharacter();
     	
     	// if the value of the key pressed is numeric, display input in text field
-    	if (isNumeric(value)) 
+    	if (isNumeric(value))
     		displayField.setText(displayField.getText() + value);
     	
+       	// else if value is a decimal point display input
+    	else if (value.equals(".")) {
+    		if (!displayField.getText().contains(".")) // only allow 1 decimal point input
+    			displayField.setText(displayField.getText() + value);
+    	}
+    			
     	// else if the value of the key pressed is not a letter 
     	else if (!isLetter(value)) {
 
