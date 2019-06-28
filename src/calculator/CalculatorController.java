@@ -25,7 +25,7 @@ public class CalculatorController {
     
     @FXML
     private Text historyField;	// display previous number and operator inputs
-
+        
     @FXML
     // handle button inputs
     private void handleButtonInput(ActionEvent event) {
@@ -105,12 +105,17 @@ public class CalculatorController {
         		displayField.setText("" + result);
     		}
     		else if (Arrays.asList(symbols).contains(value)) {
-        		storeInput();
-        		operator = event.getCharacter();
-        		        		
-    			history += (displayField.getText() + operator);
-    			historyField.setText(history); // display input history
-    			displayField.clear();
+    			// allow implementation of minus sign as negative sign or for subtraction
+    			if (displayField.getText().isEmpty() && value.equals("-")) {
+    				displayField.setText(displayField.getText() + value);
+    			}
+    			else {
+    				storeInput();
+    				operator = event.getCharacter();
+    				history += (displayField.getText() + operator);
+    				historyField.setText(history); // display input history
+    				displayField.clear();
+    			}
     		}
 
     	}

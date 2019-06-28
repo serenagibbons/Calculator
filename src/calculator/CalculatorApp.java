@@ -14,7 +14,7 @@ public class CalculatorApp extends Application{
 		
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add("calculator/CalculatorStyle.css");
-		
+				
 		primaryStage.setTitle("Calculator");
 		primaryStage.setScene(scene);
 		primaryStage.show();		
