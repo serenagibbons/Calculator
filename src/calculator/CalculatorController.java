@@ -180,7 +180,7 @@ public class CalculatorController {
     	displayField.clear();
     	historyField.setText("");
     	history = "";
-    	input = new ArrayList<Double>();
+    	input.clear();
     }
     
     // clear the current entry only
