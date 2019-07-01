@@ -194,11 +194,13 @@ public class CalculatorController {
     	else
     		displayField.clear();
     }
-    
+
     // delete the last digit entered
     private void backspace() {
-    	String entry = displayField.getText();
-		displayField.setText(entry.substring(0, entry.length()-1));
+    	if (!displayField.getText().equals("")) {
+    		String entry = displayField.getText();
+    		displayField.setText(entry.substring(0, entry.length()-1));
+    	}
     }
 
     // store numerical input in ArrayList input
