@@ -40,6 +40,7 @@ public class CalculatorController {
     		clearEntry();
         	break;
     	case "+/-":
+    		storeInput();
     		negate();
     		break;
     	case "+":
@@ -162,17 +163,25 @@ public class CalculatorController {
     }
     
     // negate the current entry
-    private void negate() {    	
-    	double temp = Double.parseDouble(displayField.getText());
-
-    	if (temp >= 0) {
-    		displayField.setText("-" + displayField.getText()); // if input is positive, make negative
+    private void negate() {  
+    	if (displayField.getText().equals("")) {
+    		displayField.setText("-");	// if no input yet, insert negative sign
+    	}
+    	else if (displayField.getText().equals("-")) {
+    		displayField.clear(); // if sole input is negative sign, clear display
     	}
     	else {
-    		displayField.setText(displayField.getText().substring(1)); // if input is negative, make positive
+    		double temp = Double.parseDouble(displayField.getText());
+
+    		if (temp >= 0) {
+    			displayField.setText("-" + displayField.getText()); // if input is positive, make negative
+    		}
+    		else {
+    			displayField.setText(displayField.getText().substring(1)); // if input is negative, make positive
+    		}
+
+    		input.set(input.indexOf(temp), 0-temp);    
     	}
-    	
-    	input.set(input.indexOf(temp), 0-temp);    		
     }
     
     // clear the current entry, history, and all stored input
