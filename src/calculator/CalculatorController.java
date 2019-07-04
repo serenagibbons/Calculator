@@ -55,11 +55,7 @@ public class CalculatorController {
     		displayField.clear();
     		break;
     	case "=":
-    		// store input, calculate, clear current display and show result
-    		storeInput();
-    		calculate();
-    		clear();
-    		displayField.setText("" + result);
+    		showResult();
     		break;
     	default: 
     		if (value.equals(".")) {
@@ -99,11 +95,7 @@ public class CalculatorController {
     	else if (!isLetter(value)) {
 
     		if (value.equals("=")) {
-    			// store input, calculate, clear current display and show result
-    			storeInput();
-        		calculate();
-        		clear();
-        		displayField.setText("" + result);
+    			showResult();
     		}
     		else if (Arrays.asList(symbols).contains(value)) {
     			// allow implementation of minus sign as negative sign or for subtraction
@@ -129,11 +121,7 @@ public class CalculatorController {
     	if (event.getCode() == KeyCode.BACK_SPACE)
     		backspace();
     	else if (event.getCode() == KeyCode.ENTER & !input.isEmpty()) {
-    		// store input, calculate, clear current display and show result
-    		storeInput();
-    		calculate();
-    		clear();
-    		displayField.setText("" + result);
+    		showResult();
     	}
     	
     }
@@ -217,6 +205,14 @@ public class CalculatorController {
     	if (isNumeric(displayField.getText())) {
     		input.add(Double.parseDouble(displayField.getText()));
     	}	
+    }
+    
+    private void showResult() {
+    	// store input, calculate, clear current display and show result
+		storeInput();
+		calculate();
+		clear();
+		displayField.setText("" + result);
     }
     
     // evaluate whether a string can be parsed into a Double
