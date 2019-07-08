@@ -168,7 +168,7 @@ public class CalculatorController {
     			displayField.setText(displayField.getText().substring(1)); // if input is negative, make positive
     		}
 
-    		input.set(input.indexOf(temp), 0-temp);    
+    		input.remove(input.indexOf(temp));
     	}
     }
     
