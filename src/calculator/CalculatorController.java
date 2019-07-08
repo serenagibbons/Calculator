@@ -96,7 +96,8 @@ public class CalculatorController {
     	else if (!isLetter(value)) {
 
     		if (value.equals("=")) {
-    			showResult();
+    			if (!displayField.getText().equals(""))
+    				showResult();
     		}
     		else if (Arrays.asList(symbols).contains(value)) {
     			// allow implementation of minus sign as negative sign or for subtraction
