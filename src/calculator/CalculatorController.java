@@ -55,7 +55,8 @@ public class CalculatorController {
     		displayField.clear();
     		break;
     	case "=":
-    		showResult();
+    		if (!displayField.getText().equals("")) 
+    			showResult();
     		break;
     	default: 
     		if (value.equals(".")) {
