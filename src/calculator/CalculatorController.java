@@ -70,14 +70,6 @@ public class CalculatorController {
     }
     
     @FXML
-    // handle keyboard input when text field selected
-    // text field not implemented to handle operators through keyboard
-    private void handleKeyboardInput(ActionEvent event) {
-    		value = ((TextField)event.getSource()).getText();		// get text of keyboard input
-        	displayField.setText(displayField.getText() + value);	// display value entered
-    }
-    
-    @FXML
     // handle key typed when application selected
     private void handleKeyTyped(KeyEvent event) {
     	value = event.getCharacter();
