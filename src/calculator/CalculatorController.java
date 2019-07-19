@@ -14,11 +14,12 @@ import javafx.scene.text.Text;
 public class CalculatorController {
 	
 	private String value;
-	private String operator;
+	private String operator = "";
 	private String history = "";
 	private double result = 0;
 	private final String[] symbols = {"*", "/", "+", "-", "="};
 	private ArrayList<Double> input = new ArrayList<Double>();
+	
 	
     @FXML
     private TextField displayField;	// display field for current entry
@@ -48,8 +49,7 @@ public class CalculatorController {
     	case "*":
     	case "/":
     		storeInput();
-    		operator = ((Button)event.getSource()).getText();
-    		
+    		operator = value;
     		history += (displayField.getText() + value);
     		historyField.setText(history); // display input history
     		displayField.clear();
@@ -98,7 +98,7 @@ public class CalculatorController {
     			}
     			else {
     				storeInput();
-    				operator = event.getCharacter();
+    				operator = value;
     				history += (displayField.getText() + operator);
     				historyField.setText(history); // display input history
     				displayField.clear();
