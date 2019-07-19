@@ -44,25 +44,22 @@ public class CalculatorController {
     		storeInput();
     		negate();
     		break;
-    	case "+":
-    	case "-":
-    	case "*":
-    	case "/":
-    		storeInput();
-    		operator = value;
-    		history += (displayField.getText() + value);
-    		historyField.setText(history); // display input history
-    		displayField.clear();
-    		break;
     	case "=":
     		if (!displayField.getText().equals("")) 
     			showResult();
     		break;
+    	case ".":
+    		if (!displayField.getText().contains(".")) // only allow 1 decimal point input
+    			displayField.setText(displayField.getText() + value);
+    		break;
     	default: 
-    		if (value.equals(".")) {
-        		if (!displayField.getText().contains(".")) // only allow 1 decimal point input
-        			displayField.setText(displayField.getText() + value);
-        	}
+    		if (Arrays.asList(symbols).contains(value)) {
+    			storeInput();
+        		operator = value;
+        		history += (displayField.getText() + value);
+        		historyField.setText(history); // display input history
+        		displayField.clear();
+    		}
     		else
     			displayField.setText(displayField.getText() + value); // display value entered
     		break;
