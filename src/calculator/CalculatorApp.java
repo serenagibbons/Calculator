@@ -16,6 +16,8 @@ public class CalculatorApp extends Application{
 		scene.getStylesheets().add("calculator/CalculatorStyle.css");
 				
 		primaryStage.setTitle("Calculator");
+		primaryStage.setMinHeight(436);
+		primaryStage.setMinWidth(314);
 		primaryStage.setScene(scene);
 		primaryStage.show();		
 	}
