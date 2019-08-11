@@ -1,6 +1,8 @@
 package calculator;
 
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,8 +18,9 @@ public class CalculatorApp extends Application{
 		scene.getStylesheets().add("calculator/CalculatorStyle.css");
 				
 		primaryStage.setTitle("Calculator");
-		primaryStage.setMinHeight(436);
-		primaryStage.setMinWidth(314);
+		primaryStage.setMaxHeight(426);
+		primaryStage.setMaxWidth(304);
+		primaryStage.setResizable(false);
 		primaryStage.setScene(scene);
 		primaryStage.show();		
 	}
