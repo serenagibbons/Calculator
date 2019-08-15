@@ -20,7 +20,6 @@ public class CalculatorController {
 	private final String[] symbols = {"*", "/", "+", "-", "="};
 	private ArrayList<Double> input = new ArrayList<Double>();
 	
-	
     @FXML
     private TextField displayField;	// display field for current entry
     
@@ -56,6 +55,7 @@ public class CalculatorController {
     		if (Arrays.asList(symbols).contains(value)) {
     			storeInput();
         		operator = value;
+        		calculate();
         		history += (displayField.getText() + value);
         		historyField.setText(history); // display input history
         		displayField.clear();
@@ -193,13 +193,11 @@ public class CalculatorController {
 
     // store numerical input in ArrayList input
     private void storeInput() {  	
-    	if (isNumeric(displayField.getText())) {
-    		input.add(Double.parseDouble(displayField.getText()));
-    	}	
+   		input.add(Double.parseDouble(displayField.getText()));
     }
     
+	// store input, calculate, clear current display and show result
     private void showResult() {
-    	// store input, calculate, clear current display and show result
 		storeInput();
 		calculate();
 		clear();
