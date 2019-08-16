@@ -194,6 +194,10 @@ public class CalculatorController {
     // store numerical input in ArrayList input
     private void storeInput() {  	
    		input.add(Double.parseDouble(displayField.getText()));
+   		if (input.size() == 2) {
+   			input.set(0, calculate());
+   			input.remove(1);
+   		}
     }
     
 	// store input, calculate, clear current display and show result
