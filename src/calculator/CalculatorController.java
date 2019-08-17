@@ -40,7 +40,6 @@ public class CalculatorController {
     		clearEntry();
         	break;
     	case "+/-":
-    		storeInput();
     		negate();
     		break;
     	case "=":
@@ -153,6 +152,7 @@ public class CalculatorController {
     	}
     	else {
     		double temp = Double.parseDouble(displayField.getText());
+    		input.add(temp);
 
     		if (temp >= 0) {
     			displayField.setText("-" + displayField.getText()); // if input is positive, make negative
