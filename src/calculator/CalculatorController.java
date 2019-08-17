@@ -53,12 +53,14 @@ public class CalculatorController {
     		break;
     	default: 
     		if (Arrays.asList(symbols).contains(value)) {
-    			storeInput();
-        		operator = value;
-        		calculate();
-        		history += (displayField.getText() + value);
-        		historyField.setText(history); // display input history
-        		displayField.clear();
+    			if (!displayField.getText().equals("")) {
+    				storeInput();
+    				operator = value;
+    				calculate();
+    				history += (displayField.getText() + value);
+    				historyField.setText(history); // display input history
+    				displayField.clear();
+    			}
     		}
     		else
     			displayField.setText(displayField.getText() + value); // display value entered
