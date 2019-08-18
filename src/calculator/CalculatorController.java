@@ -52,7 +52,7 @@ public class CalculatorController {
     		break;
     	default: 
     		if (Arrays.asList(symbols).contains(value)) {
-    			if (!displayField.getText().equals("")) {
+    			if (!displayField.getText().equals("") && !displayField.getText().equals("-")) {
     				storeInput();
     				operator = value;
     				calculate();
