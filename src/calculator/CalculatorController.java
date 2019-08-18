@@ -43,7 +43,7 @@ public class CalculatorController {
     		negate();
     		break;
     	case "=":
-    		if (!displayField.getText().equals("")) 
+    		if (!displayField.getText().equals("") && !displayField.getText().equals("-")) 
     			showResult();
     		break;
     	case ".":
@@ -86,7 +86,7 @@ public class CalculatorController {
     	else if (!isLetter(value)) {
 
     		if (value.equals("=")) {
-    			if (!displayField.getText().equals(""))
+    			if (!displayField.getText().equals("") && !displayField.getText().equals("-"))
     				showResult();
     		}
     		else if (Arrays.asList(symbols).contains(value)) {
