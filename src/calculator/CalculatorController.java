@@ -95,11 +95,13 @@ public class CalculatorController {
     				displayField.setText(displayField.getText() + value);
     			}
     			else {
-    				storeInput();
-    				operator = value;
-    				history += (displayField.getText() + operator);
-    				historyField.setText(history); // display input history
-    				displayField.clear();
+    				if (!displayField.getText().equals("")) {
+    					storeInput();
+    					operator = value;
+    					history += (displayField.getText() + operator);
+    					historyField.setText(history); // display input history
+    					displayField.clear();
+    				}
     			}
     		}
 
