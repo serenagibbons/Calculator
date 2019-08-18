@@ -95,7 +95,7 @@ public class CalculatorController {
     				displayField.setText(displayField.getText() + value);
     			}
     			else {
-    				if (!displayField.getText().equals("")) {
+    				if (!displayField.getText().equals("") && !displayField.getText().equals("-")) {
     					storeInput();
     					operator = value;
     					history += (displayField.getText() + operator);
