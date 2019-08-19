@@ -2,6 +2,8 @@ package calculator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -206,12 +208,23 @@ public class CalculatorController {
     
 	// store input, calculate, clear current display and show result
     private void showResult() {
-		storeInput();
-		calculate();
-		clear();
-		displayField.setText("" + result);
+    	storeInput();
+    	calculate();
+    	clear();
+    	
+    	String stringResult = "" + result;
+    	Pattern p=Pattern.compile(".0$");
+    	Matcher m=p.matcher(stringResult);
+    	
+    	// if result ends with ".0", display result as integer
+    	if (m.find()) {
+    		long longResult = Math.round(result);
+    		displayField.setText("" + longResult);
+    	}
+    	else
+    		displayField.setText(stringResult);
     }
-    
+
     // evaluate whether a string can be parsed into a Double
     private boolean isNumeric(String s) {
     	try {
