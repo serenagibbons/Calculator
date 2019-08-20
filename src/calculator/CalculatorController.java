@@ -96,14 +96,12 @@ public class CalculatorController {
     			if (displayField.getText().isEmpty() && value.equals("-")) {
     				displayField.setText(displayField.getText() + value);
     			}
-    			else {
-    				if (!displayField.getText().equals("") && !displayField.getText().equals("-")) {
+    			else if (!displayField.getText().equals("") && !displayField.getText().equals("-")) {
     					storeInput();
     					operator = value;
     					history += (displayField.getText() + operator);
     					historyField.setText(history); // display input history
     					displayField.clear();
-    				}
     			}
     		}
 
