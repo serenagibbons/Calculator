@@ -31,7 +31,7 @@ public class CalculatorController {
     @FXML
     // handle button inputs
     private void handleButtonInput(ActionEvent event) {
-    	value = ((Button)event.getSource()).getText();			// get text of button input
+    	value = ((Button)event.getSource()).getText();	// get text of button input
     	
     	switch(value) {
     	case "C": // clear display and reset result
@@ -53,7 +53,8 @@ public class CalculatorController {
     			displayField.setText(displayField.getText() + value);
     		break;
     	default: 
-    		if (Arrays.asList(symbols).contains(value)) {
+    		if (Arrays.asList(symbols).contains(value)) { // if value is an operator
+    			// store input/perform calculations if displayField contains a numerical value
     			if (!displayField.getText().equals("") && !displayField.getText().equals("-")) {
     				storeInput();
     				operator = value;
@@ -72,39 +73,37 @@ public class CalculatorController {
     @FXML
     // handle key typed when application selected
     private void handleKeyTyped(KeyEvent event) {
-    	value = event.getCharacter();
+    	value = event.getCharacter();	// get text of typed input
     	
-    	// if the value of the key pressed is numeric, display input in text field
-    	if (isNumeric(value))
-    		displayField.setText(displayField.getText() + value);
-    	
-       	// else if value is a decimal point display input
-    	else if (value.equals(".")) {
+    	switch(value) {
+    	case "=":
+    		if (!displayField.getText().equals("") && !displayField.getText().equals("-"))
+				showResult();
+    		break;
+    	case ".":
     		if (!displayField.getText().contains(".")) // only allow 1 decimal point input
     			displayField.setText(displayField.getText() + value);
-    	}
-    			
-    	// else if the value of the key pressed is not a letter 
-    	else if (!isLetter(value)) {
-
-    		if (value.equals("=")) {
-    			if (!displayField.getText().equals("") && !displayField.getText().equals("-"))
-    				showResult();
-    		}
-    		else if (Arrays.asList(symbols).contains(value)) {
+    		break;
+    	default:
+    		if (Arrays.asList(symbols).contains(value)) {	// if value is an operator
     			// allow implementation of minus sign as negative sign or for subtraction
     			if (displayField.getText().isEmpty() && value.equals("-")) {
     				displayField.setText(displayField.getText() + value);
     			}
+    			// else perform operation
     			else if (!displayField.getText().equals("") && !displayField.getText().equals("-")) {
-    					storeInput();
-    					operator = value;
-    					history += (displayField.getText() + operator);
-    					historyField.setText(history); // display input history
-    					displayField.clear();
+    				storeInput();
+    				operator = value;
+    				calculate();
+    				history += (displayField.getText() + value);
+    				historyField.setText(history); // display input history
+    				displayField.clear();
     			}
     		}
-
+    		// if the value of the key pressed is numeric, display input in text field
+    		else if (isNumeric(value))
+    			displayField.setText(displayField.getText() + value); // display value entered
+    		break;
     	}
     }
     
