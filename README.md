@@ -1,3 +1,3 @@
-#Calculator
+# Calculator
 
-![Calculator Image] (c/Users/seren/Pictures/CalcuatorScreenShot.PNG)
+![Calculator Image] (CalculatorImage.PNG)
