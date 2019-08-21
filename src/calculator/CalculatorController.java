@@ -233,15 +233,4 @@ public class CalculatorController {
     	}
     }
     
-    // evaluate whether a string contains only letters
-    private boolean isLetter(String s) {
-    	boolean flag = false;
-    	
-    	for (int i = 0; i < s.length(); i++)
-    	    if (java.lang.Character.isLetter(s.charAt(i)))
-    	    	flag = true;
- 
-    	return flag;
-    }
-    
 }
