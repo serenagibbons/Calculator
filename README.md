@@ -1,3 +1,3 @@
 # Calculator
 
-![Calculator Image] (file://CalculatorImage.PNG)
+![Calculator Image](CalculatorImage.PNG)
