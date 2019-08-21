@@ -113,7 +113,7 @@ public class CalculatorController {
     	
     	if (event.getCode() == KeyCode.BACK_SPACE)
     		backspace();
-    	else if (event.getCode() == KeyCode.ENTER & !input.isEmpty()) {
+    	else if (event.getCode() == KeyCode.ENTER && !(input.isEmpty() || displayField.getText().isEmpty())) {
     		showResult();
     	}
     	
