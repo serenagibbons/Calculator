@@ -39,7 +39,7 @@ public class CalculatorController {
     		result = 0;
     		break;
     	case "CE":
-    		clearEntry();
+    		displayField.clear();	// clear the current entry only
         	break;
     	case "+/-":
     		negate();
@@ -172,18 +172,6 @@ public class CalculatorController {
     	historyField.setText("");
     	history = "";
     	input.clear();
-    }
-    
-    // clear the current entry only
-    private void clearEntry() { 
-    	if (!input.isEmpty()) {
-    		double lastEntry = Double.parseDouble(displayField.getText());
-
-    		displayField.clear();
-    		input.remove(input.indexOf(lastEntry));
-    	}
-    	else
-    		displayField.clear();
     }
 
     // delete the last digit entered
